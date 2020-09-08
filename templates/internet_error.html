@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename = 'jquery/jquery-3.5.1.min.js') }}"></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'bootstrap/js/bootstrap.min.js') }}" ></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap.min.css') }}">
+    <title>internet error</title>
+
+</head>
+<body>
+
+   <div class="container text-center">
+    <h1>No Internet Connection.....</h1><h1>Please Exit</h1>
+    <a class="btn btn-danger" id="btnExit">Cancel</a>
+    
+   </div> 
+</body>
+
+<script>
+    $( "#btnExit" ).click(function() {
+      $.ajax({
+      url: "http://127.0.0.1:5000/exit",
+      success:function(data)
+      {
+        window.open('','_parent',''); 
+        window.close();
+      }
+    });
+    
+    });
+    
+    
+    </script>
+</html>
